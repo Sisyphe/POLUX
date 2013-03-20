@@ -1,0 +1,4 @@
+[Project]
+Name=polux
+Manager=KDevCMakeManager
+VersionControl=kdevgit
