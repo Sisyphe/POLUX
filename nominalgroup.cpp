@@ -21,13 +21,23 @@ QList<NominalGroup*> NominalGroup::createNominalGroups(QList<Word*> n_words)
     {
         int t_kernel_index=-1;
         QList<Word*> t_word_group;
+        Gender group_gender=NONE;
         int j=i;
         if(n_words[i]->type()!="Préposition") // Une groupe nominal ne commence pas par une préposition
         {
             while(j<n_words.size() && t_nominal_group_component.contains(n_words[j]->type()))
             {
-                if(t_kernel_index<0 && n_words[j]->type()=="Nom")
+                if(n_words[j]->gender()!=BOTH)
+                    group_gender=(Gender)(group_gender|n_words[j]->gender());
+
+                if(
+                   t_kernel_index<0
+                   && (n_words[j]->type()=="Nom" ||  n_words[j]->type()=="Pronom")
+                   && (n_words[j]->gender()&group_gender)
+                )
+                {
                     t_kernel_index=j;
+                }
                 t_word_group.append(n_words[j]);
                 ++j;
             }

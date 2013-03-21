@@ -3,8 +3,9 @@
 
 #include <QStringList>
 #include "noun.h"
+#include "wordgroup.h"
 
-class NominalGroup
+class NominalGroup: public WordGroup
 {
     public:
         NominalGroup(QList<Word*> n_words,Noun* n_kernel);
@@ -13,7 +14,6 @@ class NominalGroup
 
     protected:
         Noun* m_kernel;
-        QList<Word*> m_words;
 };
 
 #endif // NOMINALGROUP_H

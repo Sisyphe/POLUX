@@ -3,14 +3,12 @@
 
 #include "thingsindex.h"
 #include "word.h"
+#include "wordgroup.h"
 
-class Sentence
+class Sentence: public WordGroup
 {
     public:
         Sentence(const QString& n_string);
-
-    protected:
-        QList<Word*> m_words;
 };
 
 #endif // SENTENCE_H

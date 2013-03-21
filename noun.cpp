@@ -18,8 +18,3 @@ bool Noun::isCommon() const
 {
     return m_is_common;
 }
-
-Gender Noun::gender() const
-{
-    return m_gender;
-}

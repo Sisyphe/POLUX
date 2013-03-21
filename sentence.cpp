@@ -14,4 +14,8 @@ Sentence::Sentence(const QString &n_string)
     }
     QList<NominalGroup*> t_nominal_groups=NominalGroup::createNominalGroups(m_words);
     QList<VerbalGroup*> t_verbal_groups=VerbalGroup::createVerbalGroups(m_words);
+    foreach(NominalGroup *nominal_group,t_nominal_groups)
+        std::cout<<*nominal_group<<std::endl;
+    foreach(VerbalGroup *verbal_group,t_verbal_groups)
+        std::cout<<*verbal_group<<std::endl;
 }
